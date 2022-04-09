@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "2b26ff8d-8b36-43e8-b9c5-ee9067d161ea",
+		"name": "ContactList",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Basic Endpoint test",
+			"item": [
+				{
+					"name": "Get Contact list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add contact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Jennifer\",\r\n        \"lastName\": \"Lopez\",\r\n        \"email\": \"jennifer@lopez.com\",\r\n        \"location\": {\r\n            \"city\": \"London\",\r\n            \"country\": \"UK\"\r\n        },\r\n        \"employer\": {\r\n            \"jobTitle\": \"QA Lead\",\r\n            \"company\": \"TCS-USA\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update contact",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Jenishly\",\r\n        \"lastName\": \"Thomas\",\r\n        \"email\": \"jenishly@thomas.com\",\r\n        \"location\": {\r\n            \"city\": \"Brussles\",\r\n            \"country\": \"Belgium\"\r\n        },\r\n        \"employer\": {\r\n            \"jobTitle\": \"QA Lead\",\r\n            \"company\": \"TCS-Belgium\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "3.13.86.142:3000/contacts/60a68f4c17073404765969fe",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts",
+								"60a68f4c17073404765969fe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "3.13.86.142:3000/contacts/60a68f4c17073404765969fe",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts",
+								"60a68f4c17073404765969fe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative Tests",
+			"item": [
+				{
+					"name": "Get Contact Not found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add contact Missing First name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Jennifer\",\r\n        \"lastName\": \"Lopez\",\r\n        \"email\": \"jennifer@lopez.com\",\r\n        \"location\": {\r\n            \"city\": \"London\",\r\n            \"country\": \"UK\"\r\n        },\r\n        \"employer\": {\r\n            \"jobTitle\": \"QA Lead\",\r\n            \"company\": \"TCS-USA\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add contact Company too long",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Jennifer\",\r\n        \"lastName\": \"Lopez\",\r\n        \"email\": \"jennifer@lopez.com\",\r\n        \"location\": {\r\n            \"city\": \"London\",\r\n            \"country\": \"UK\"\r\n        },\r\n        \"employer\": {\r\n            \"jobTitle\": \"QA Lead\",\r\n            \"company\": \"TCS-USAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add contact Invalid Last Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Jennifer\",\r\n        \"lastName\": \"Lopez:\",\r\n        \"email\": \"jennifer@lopez.com\",\r\n        \"location\": {\r\n            \"city\": \"London\",\r\n            \"country\": \"UK\"\r\n        },\r\n        \"employer\": {\r\n            \"jobTitle\": \"QA Lead\",\r\n            \"company\": \"TCS-USA\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add contact Invalid Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Jennifer\",\r\n        \"lastName\": \"Lopez\",\r\n        \"email\": \"jenniferlopez.com\",\r\n        \"location\": {\r\n            \"city\": \"London\",\r\n            \"country\": \"UK\"\r\n        },\r\n        \"employer\": {\r\n            \"jobTitle\": \"QA Lead\",\r\n            \"company\": \"TCS-USA\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "3.13.86.142:3000/contacts",
+							"host": [
+								"3",
+								"13",
+								"86",
+								"142"
+							],
+							"port": "3000",
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
